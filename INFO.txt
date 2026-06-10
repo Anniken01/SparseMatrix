@@ -1,0 +1,43 @@
+//Written by Laura Stephenson(steph933) and Anniken Rabben(rabbe014)
+Project by: Anniken Rabben (rabbe014) and Laura Stephenson (steph933)
+
+Contributions: This project was worked on by Laura and Anniken together, and we agree that the contributions were equal.
+
+How to run and Compile:
+Go to the folder CSCI1933P3-Meyers and run the line:
+"javac SparseIntMatrixTest.java"
+and then run
+"java CSCI1933P3-Meyers/SparseIntMatrix"
+
+Assumptions:
+After running the program once and successfully generating an image, the program will continue to run
+in the background until otherwise stopped by the user.
+We assume that the file being read contains only integer values.
+We assume that the csv files will contain comma-seperated values and no spaces or other characters.
+
+Analysis and Comparison of Space Efficiency in SparseIntMatrix Class:
+a) For a square matrix of N x N elements with m non-zero elements,
+the memory required for this SparseIntMatrix implementation is going to be the
+amount of memory per primitive type times the amount of non-zero elements, m.
+In MatrixEntry, we have three ints (row, col, data), and two MatrixEntry variables (NextRow, NextCol) which
+should total 32 bytes (https://javachallengers.com/memory-allocation-with-java/). Thus the total memory required
+would be 32*m bytes. Compared to a standard 2D array implementation which would require more space as the
+nonzero elements also require memory.
+
+b) For a square matrix, we'll assume N= 100,000 and m= 1,000,000. The SparseIntMatrix implementation
+is much more space-efficient. An N x N array would take up N^2 = 10 billion units times 4 bytes equalling
+40 GB (40 billion bytes). In comparison, the linked-list implementation requires 32 bytes per non-zero
+element. With m = 1,000,000 this totals 32 MB (32 million bytes) or 0.032 GB. In conclusion, it's clear that for large
+structures, especially ones with many zero's, a linked list implementation will be more space efficient.
+
+Outside Sources:
+https://www.cs.usfca.edu/~galles/cs245S15/SparseArray/
+https://web.njit.edu/~avp38/projects/mae/sparse_matrix.html#:~:text=This%20sparse%20matrix%20is%20implemented,are%20not%20represented%2C%20saving%20space.
+https://javachallengers.com/memory-allocation-with-java/
+
+
+"I certify that the information contained in this INFO file is complete and accurate
+I have both read and followed the course policies in the "Academic Integrity - Course Policy" section of the course syllabus."
+
+Anniken Rabben
+Laura Stephenson
